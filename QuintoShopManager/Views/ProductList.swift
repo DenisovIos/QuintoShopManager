@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ProductList: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            VStack{
+                Text("Список товаров")
+                Picker("Фильтр", selection: <#T##Binding<Hashable>#>) { 
+                    <#code#>
+                }
+            }
         }
         .padding()
     }
@@ -21,6 +23,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ProductList()
     }
 }
