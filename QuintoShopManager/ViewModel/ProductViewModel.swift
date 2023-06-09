@@ -11,4 +11,9 @@ class ProductViewModel: ObservableObject {
     @Published var productTypeList: [TypeOfModel]
     @Published var choosedFilter: TypeOfModel
     
+    
+    init () {
+        productTypeList = TypeOfModel.dataSource
+        choosedFilter = TypeOfModel.dataSource[0]
+    }
 }

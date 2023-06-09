@@ -8,12 +8,28 @@
 import SwiftUI
 
 struct ProductList: View {
+    @StateObject var viewModel = ProductViewModel()
     var body: some View {
         VStack {
             VStack{
                 Text("Список товаров")
-                Picker("Фильтр", selection: <#T##Binding<Hashable>#>) { 
-                    <#code#>
+                HStack{
+                    Picker("Фильтр", selection: $viewModel.choosedFilter) {
+                        ForEach(viewModel.productTypeList) {
+                            product in
+                            Text(product.title)
+                                .tag(product)
+                        }
+                    }
+                    Button {
+                        print(viewModel.choosedFilter.title)
+                    } label: {
+                       Text("Применить фильтр")
+                    }
+                    .background(.green)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+
                 }
             }
         }

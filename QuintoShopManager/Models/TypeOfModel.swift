@@ -15,6 +15,7 @@ struct TypeOfModel: Identifiable {
 
 extension TypeOfModel {
    static let dataSource: [TypeOfModel] = [
+        TypeOfModel(title: "Все"),
         TypeOfModel(title: "Микрофоны"),
         TypeOfModel(title: "Комбоусилители"),
         TypeOfModel(title: "Кабели"),
