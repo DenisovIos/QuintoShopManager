@@ -13,10 +13,10 @@ class StorageManager: ObservableObject {
     static let shared = StorageManager(); private init () { }
     let storage = Storage.storage()
     
-    func uploadImage (_ images: [UIImage], _ name: String) {
-        for image in images.enumerated() {
-            let storageRef = storage.reference().child("\(name)/\(image.offset).jpg")
-        }
-        
-    }
+//    func uploadImage (_ images: [UIImage], _ article: String) {
+//        for image in images.enumerated() {
+//            let storageRef = storage.reference().child("\(article)/\(image.offset).jpg")
+//        }
+//        
+//    }
 }

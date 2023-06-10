@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct AddNewProduct: View {
+    @StateObject var viewModel = AddNewProductViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading){
+            HStack{
+                Text("Название: ")
+                TextField("", text: $viewModel.name)
+            }
+            VStack {
+                Text("Описание: ")
+                TextField("", text: $viewModel.description)
+            }
+            HStack{
+                Text("Цена: ")
+                TextField("", text: $viewModel.price)
+                 
+            }
+            HStack{
+                Text("Артикуль: ")
+                TextField("", text: $viewModel.article)
+            }
+            Picker("Фильтр", selection: $viewModel.type) {
+                ForEach(viewModel.productTypeList) {
+                    product in
+                    Text(product.title)
+                        .tag(product)
+                }
+                .pickerStyle(.inline)
+            }
+        }
+       
     }
 }
 

@@ -29,6 +29,7 @@
 		444760D32A336EC100908903 /* ScreenChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760D22A336EC100908903 /* ScreenChanger.swift */; };
 		444760D72A34549600908903 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 444760D62A34549600908903 /* GoogleService-Info.plist */; };
 		444760D92A3459FE00908903 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760D82A3459FE00908903 /* StorageManager.swift */; };
+		444760DB2A3471B100908903 /* AddNewProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760DA2A3471B100908903 /* AddNewProductViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		444760D22A336EC100908903 /* ScreenChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenChanger.swift; sourceTree = "<group>"; };
 		444760D62A34549600908903 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		444760D82A3459FE00908903 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		444760DA2A3471B100908903 /* AddNewProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				442B008E2A3346E2001D9F08 /* ProductViewModel.swift */,
 				444760D02A3362FB00908903 /* AuthViewModel.swift */,
+				444760DA2A3471B100908903 /* AddNewProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				444760CD2A335FAC00908903 /* AuthView.swift in Sources */,
 				442B008D2A3345E5001D9F08 /* OrderListModel.swift in Sources */,
 				442B007D2A33423F001D9F08 /* TabBarView.swift in Sources */,
+				444760DB2A3471B100908903 /* AddNewProductViewModel.swift in Sources */,
 				442B007F2A334387001D9F08 /* OrderList.swift in Sources */,
 				444760CF2A335FCE00908903 /* AuthService.swift in Sources */,
 				442B00892A334523001D9F08 /* TypeOfModel.swift in Sources */,

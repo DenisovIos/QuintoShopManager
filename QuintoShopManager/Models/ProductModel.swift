@@ -13,7 +13,7 @@ struct ProductModel: Identifiable {
     var description: String
     var price: Int
     var article: String
-    var imageUrl: String
+    var images: [String]
     var type: TypeOfModel
     var quantity: Int
 }

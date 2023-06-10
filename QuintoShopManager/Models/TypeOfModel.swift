@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct TypeOfModel: Identifiable {
     var id: String = UUID().uuidString
@@ -37,5 +38,15 @@ extension TypeOfModel {
         repres["id"] = id
         repres["title"] = title
         return repres
+    }
+}
+
+extension TypeOfModel {
+    init?(qdSnap: QueryDocumentSnapshot) {
+        let data = qdSnap.data()
+        guard let id = data["id"] as? String,
+              let title = data["title"] as? String else { return nil }
+        self.id = id
+        self.title = title
     }
 }
