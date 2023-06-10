@@ -14,7 +14,6 @@
 		442B00722A3340B5001D9F08 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 442B00712A3340B5001D9F08 /* FirebaseAuth */; };
 		442B00742A3340B5001D9F08 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 442B00732A3340B5001D9F08 /* FirebaseFirestore */; };
 		442B00762A3340B5001D9F08 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 442B00752A3340B5001D9F08 /* FirebaseStorage */; };
-		442B007A2A33420C001D9F08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 442B00792A33420C001D9F08 /* GoogleService-Info.plist */; };
 		442B007D2A33423F001D9F08 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B007C2A33423F001D9F08 /* TabBarView.swift */; };
 		442B007F2A334387001D9F08 /* OrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B007E2A334387001D9F08 /* OrderList.swift */; };
 		442B00812A3343CF001D9F08 /* AddNewProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B00802A3343CF001D9F08 /* AddNewProduct.swift */; };
@@ -28,6 +27,8 @@
 		444760CF2A335FCE00908903 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760CE2A335FCE00908903 /* AuthService.swift */; };
 		444760D12A3362FC00908903 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760D02A3362FB00908903 /* AuthViewModel.swift */; };
 		444760D32A336EC100908903 /* ScreenChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760D22A336EC100908903 /* ScreenChanger.swift */; };
+		444760D72A34549600908903 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 444760D62A34549600908903 /* GoogleService-Info.plist */; };
+		444760D92A3459FE00908903 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760D82A3459FE00908903 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +37,6 @@
 		442B00642A333E7E001D9F08 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		442B00662A333E7E001D9F08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		442B00692A333E7E001D9F08 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		442B00792A33420C001D9F08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		442B007C2A33423F001D9F08 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		442B007E2A334387001D9F08 /* OrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderList.swift; sourceTree = "<group>"; };
 		442B00802A3343CF001D9F08 /* AddNewProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProduct.swift; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		444760CE2A335FCE00908903 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		444760D02A3362FB00908903 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		444760D22A336EC100908903 /* ScreenChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenChanger.swift; sourceTree = "<group>"; };
+		444760D62A34549600908903 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		444760D82A3459FE00908903 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				442B00612A333E7E001D9F08 /* QuintoShopManager */,
-				442B00792A33420C001D9F08 /* GoogleService-Info.plist */,
 				442B00602A333E7E001D9F08 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +87,7 @@
 		442B00612A333E7E001D9F08 /* QuintoShopManager */ = {
 			isa = PBXGroup;
 			children = (
+				444760D62A34549600908903 /* GoogleService-Info.plist */,
 				442B00622A333E7E001D9F08 /* QuintoShopManagerApp.swift */,
 				442B007B2A33422F001D9F08 /* Views */,
 				442B00662A333E7E001D9F08 /* Assets.xcassets */,
@@ -123,6 +125,7 @@
 			children = (
 				442B00822A3344BA001D9F08 /* FirestoreService.swift */,
 				444760CE2A335FCE00908903 /* AuthService.swift */,
+				444760D82A3459FE00908903 /* StorageManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -214,8 +217,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				442B006A2A333E7E001D9F08 /* Preview Assets.xcassets in Resources */,
+				444760D72A34549600908903 /* GoogleService-Info.plist in Resources */,
 				442B00672A333E7E001D9F08 /* Assets.xcassets in Resources */,
-				442B007A2A33420C001D9F08 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +244,7 @@
 				444760D32A336EC100908903 /* ScreenChanger.swift in Sources */,
 				442B00862A334501001D9F08 /* ProductModel.swift in Sources */,
 				442B00812A3343CF001D9F08 /* AddNewProduct.swift in Sources */,
+				444760D92A3459FE00908903 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +386,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = DR.QuintoShop;
+				PRODUCT_BUNDLE_IDENTIFIER = DR.QuintoShopManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -414,7 +418,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = DR.QuintoShop;
+				PRODUCT_BUNDLE_IDENTIFIER = DR.QuintoShopManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

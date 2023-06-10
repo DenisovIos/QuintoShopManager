@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1078687270212-p1uc2dduikp5bsjds7t7npgvakohjopk.apps.googleusercontent.com</string>
+	<string>1078687270212-ov4bf7muv45rmoi45pq8jg31ivm8bi7j.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1078687270212-p1uc2dduikp5bsjds7t7npgvakohjopk</string>
+	<string>com.googleusercontent.apps.1078687270212-ov4bf7muv45rmoi45pq8jg31ivm8bi7j</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAW1tjaYfJYVQHqOLrgHotQFeKHxvaVfOs</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>DR.QuintoShop</string>
+	<string>DR.QuintoShopManager</string>
 	<key>PROJECT_ID</key>
 	<string>quinto-shop</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1078687270212:ios:da85bfd2dd8952fb57c311</string>
+	<string>1:1078687270212:ios:d9382d8058a3853e57c311</string>
 </dict>
 </plist>

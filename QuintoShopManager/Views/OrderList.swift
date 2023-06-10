@@ -11,13 +11,10 @@ struct OrderList: View {
     
     var body: some View {
         VStack{
-            Button("2weqe") {
-                Task{
-                    try await FirestoreService.shared.supportMethod()
-                }
-            }
+            Text("Order list")
         }
     }
+    
 }
 
 struct OrderList_Previews: PreviewProvider {

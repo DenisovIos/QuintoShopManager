@@ -13,5 +13,5 @@ struct ShopingCartModel: Identifiable {
     var shopingCart: [ProductModel]
     var name: String
     var number: Int
-    
+    var time: Date
 }
