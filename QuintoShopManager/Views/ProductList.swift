@@ -45,7 +45,7 @@ struct ProductList: View {
                 .background(.white)
                 .frame(height: 40)
                 List {
-                    Text("1")
+                    Text("Тут будут товары")
                 }
                 .listStyle(.plain)
                 

@@ -30,6 +30,8 @@
 		444760D72A34549600908903 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 444760D62A34549600908903 /* GoogleService-Info.plist */; };
 		444760D92A3459FE00908903 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760D82A3459FE00908903 /* StorageManager.swift */; };
 		444760DB2A3471B100908903 /* AddNewProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444760DA2A3471B100908903 /* AddNewProductViewModel.swift */; };
+		445F55482A347D83004C5831 /* TextFieldMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F55472A347D83004C5831 /* TextFieldMod.swift */; };
+		445F554B2A34A06C004C5831 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F554A2A34A06C004C5831 /* PhotoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		444760D62A34549600908903 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		444760D82A3459FE00908903 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		444760DA2A3471B100908903 /* AddNewProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductViewModel.swift; sourceTree = "<group>"; };
+		445F55472A347D83004C5831 /* TextFieldMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMod.swift; sourceTree = "<group>"; };
+		445F554A2A34A06C004C5831 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 				442B007E2A334387001D9F08 /* OrderList.swift */,
 				442B00802A3343CF001D9F08 /* AddNewProduct.swift */,
 				444760CC2A335FAC00908903 /* AuthView.swift */,
+				445F55492A347D86004C5831 /* Modifier */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				442B00852A334501001D9F08 /* ProductModel.swift */,
 				442B00882A334523001D9F08 /* TypeOfModel.swift */,
 				442B008A2A334560001D9F08 /* ShopingCartModel.swift */,
+				445F554A2A34A06C004C5831 /* PhotoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +157,14 @@
 				444760DA2A3471B100908903 /* AddNewProductViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		445F55492A347D86004C5831 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				445F55472A347D83004C5831 /* TextFieldMod.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +251,7 @@
 				444760CD2A335FAC00908903 /* AuthView.swift in Sources */,
 				442B008D2A3345E5001D9F08 /* OrderListModel.swift in Sources */,
 				442B007D2A33423F001D9F08 /* TabBarView.swift in Sources */,
+				445F554B2A34A06C004C5831 /* PhotoModel.swift in Sources */,
 				444760DB2A3471B100908903 /* AddNewProductViewModel.swift in Sources */,
 				442B007F2A334387001D9F08 /* OrderList.swift in Sources */,
 				444760CF2A335FCE00908903 /* AuthService.swift in Sources */,
@@ -244,6 +259,7 @@
 				442B008F2A3346E2001D9F08 /* ProductViewModel.swift in Sources */,
 				442B00632A333E7E001D9F08 /* QuintoShopManagerApp.swift in Sources */,
 				444760D12A3362FC00908903 /* AuthViewModel.swift in Sources */,
+				445F55482A347D83004C5831 /* TextFieldMod.swift in Sources */,
 				442B008B2A334560001D9F08 /* ShopingCartModel.swift in Sources */,
 				444760D32A336EC100908903 /* ScreenChanger.swift in Sources */,
 				442B00862A334501001D9F08 /* ProductModel.swift in Sources */,

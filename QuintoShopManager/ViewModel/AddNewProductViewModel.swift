@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import PhotosUI
+import SwiftUI
 
 class AddNewProductViewModel: ObservableObject {
     @Published var name: String = ""
@@ -14,10 +16,20 @@ class AddNewProductViewModel: ObservableObject {
     @Published var article: String = ""
     @Published var images: [String] = []
     @Published var type: TypeOfModel = TypeOfModel.dataSource[0]
-    @Published var quantity: Int = 1
+    @Published var quantity: String = ""
     
     var productTypeList : [TypeOfModel]
+    
+    @Published var selectedItems = [PhotosPickerItem]()
+    @Published var selectedImages =  [UIImage]()
   
+    
+    func removeImage(_ image: UIImage) {
+        let result = selectedImages.filter { img in
+            img != image
+        }
+        selectedImages = result
+    }
     init () {
         productTypeList = TypeOfModel.dataSource
     }

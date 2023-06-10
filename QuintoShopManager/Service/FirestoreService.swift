@@ -14,6 +14,7 @@ class FirestoreService {
     
     var typeOfRef: CollectionReference { db.collection("typeOf") }
     var shopCartRef: CollectionReference {db.collection("shopCart") }
+    var productRef: CollectionReference {db.collection("products") }
     
     
     func getTypeOfModel () async throws -> [TypeOfModel] {
@@ -31,5 +32,9 @@ class FirestoreService {
             try await typeOfRef.document(typeOf.id).setData(typeOf.representation)
             print("Данные загружены")
         }
+    }
+    
+    func addPhoto(_ photo: PhotoModel, to product: ProductModel) async throws  {
+        try await productRef.document(product.id).collection("photos").document(photo.id).setData(photo.representation)
     }
 }

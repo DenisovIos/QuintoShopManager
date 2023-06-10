@@ -28,7 +28,6 @@ class AuthService {
     func check() -> Bool {
         guard let user = currentUser else {return false}
         let result = user.uid == "3VNP7HFWYWNhaD5lYsLOo3QJeN13" ? true : false
-        print (result)
         return result
     }
     
