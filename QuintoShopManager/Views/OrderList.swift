@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct OrderList: View {
-    @State var image = UIImage(systemName: "person")!
+    @State var images = [UIImage]()
     var body: some View {
         VStack{
             Button("12312") {
                 StorageManager.shared.uploadImage([UIImage(systemName: "person")!], "12312")
             }
-            Image(uiImage: image)
+            if images.count > 0 {
+                Image(uiImage: images[0])
+            } else {
+                Image(uiImage: UIImage(systemName: "person")!)
+            }
             Button("Get photo") {
                 Task {
                     print("yачинаем загружать фотку")
                     let images = try await StorageManager.shared.downloadImages("12312")
+                    print("не дожидается тут и хоть тресни")
+                    DispatchQueue.main.async {
+                        print("дада, пошел я нахер")
+                        self.images = images
+                    }
+                    
                 }
             }
         }
-    }
-    func changeImage(_ image : UIImage ) async throws {
-        self.image = image
     }
 }
 
