@@ -57,22 +57,25 @@ class StorageManager: ObservableObject {
     
     func downloadImages (_ article: String) async throws -> [UIImage] {
         var result = [UIImage]()
-        let islandRef = storage.reference().child("\(article)/0.jpg")
-        islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                print("image is empty")
-            } else {
-                print("получаем дату")
-                guard let data else { return }
-                print("делаем дату красивой")
-                guard let image = UIImage(data: data) else { return }
-                print("делаем дату картинкой")
-                result.append(image)
-                print("Добавили в массив")
+        
+        for i in 0...10 {
+            let islandRef = storage.reference().child("\(article)/\(i).jpg")
+            islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print("image \(i) is empty")
+                } else {
+                    print("получаем дату")
+                    guard let data else { return }
+                    print("делаем дату красивой")
+                    guard let image = UIImage(data: data) else { return }
+                    print("делаем дату картинкой")
+                    result.append(image)
+                    print("Добавили в массив")
+                }
             }
         }
         
         return result
-        
     }
+    
 }

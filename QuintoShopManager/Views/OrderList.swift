@@ -21,14 +21,7 @@ struct OrderList: View {
             }
             Button("Get photo") {
                 Task {
-                    print("yачинаем загружать фотку")
                     let images = try await StorageManager.shared.downloadImages("12312")
-                    print("не дожидается тут и хоть тресни")
-                    DispatchQueue.main.async {
-                        print("дада, пошел я нахер")
-                        self.images = images
-                    }
-                    
                 }
             }
         }
