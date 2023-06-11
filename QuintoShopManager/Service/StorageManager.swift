@@ -14,7 +14,7 @@ class StorageManager: ObservableObject {
     static let shared = StorageManager(); private init () { }
     let storage = Storage.storage()
     
-    func uploadImage (_ images: [UIImage], _ article: String)  {
+    func uploadImages (_ images: [UIImage], article: String)  {
         for image in images.enumerated() {
             let storageRef = storage.reference().child("\(article)/\(image.offset).jpg")
             let imageData = image.element.jpegData(compressionQuality: 0.5)
@@ -32,6 +32,26 @@ class StorageManager: ObservableObject {
                 }
             }
         }
+        
+    }
+    func uploadImageBlank (article: String)  {
+        let storageRef = storage.reference().child("\(article)/0.jpg")
+        let image = UIImage(named: "blankPhoto")
+        let imageData = image?.jpegData(compressionQuality: 0.5)
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        if let data = imageData {
+            storageRef.putData(data, metadata: metadata) { (metadata, error) in
+                if let error = error {
+                    print("Error while uploading file: ", error)
+                }
+                
+                if let metadata = metadata {
+                    print("Metadata: ", metadata)
+                }
+            }
+        }
+        
         
     }
     

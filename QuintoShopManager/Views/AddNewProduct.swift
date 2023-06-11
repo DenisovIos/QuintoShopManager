@@ -27,11 +27,10 @@ struct AddNewProduct: View {
                     
                     
                 }
-                VStack {
+                VStack(alignment: .leading) {
                     Text("Описание: ")
                         .frame(width: 100, alignment: .leading)
-                    TextField("", text: $viewModel.description)
-                        .frame(height: 150)
+                    TextField("", text: $viewModel.description, axis: .vertical)
                         .modifier(TextFieldMod())
                 }
                 HStack{
@@ -137,7 +136,21 @@ struct AddNewProduct: View {
                 }
                 
                 Button {
-                    print("send to server")
+                    Task {
+                        try await FirestoreService.shared.addNewProduct(ProductModel(name: viewModel.name,
+                                                                           description: viewModel.description,
+                                                                           price: viewModel.price,
+                                                                           article: viewModel.article,
+                                                                           type: viewModel.type.title,
+                                                                           quantity: viewModel.quantity))
+                    }
+                    Task {
+                        if viewModel.selectedImages.count > 0 {
+                            StorageManager.shared.uploadImages(_: viewModel.selectedImages ,article: viewModel.article)
+                        } else {
+                            StorageManager.shared.uploadImageBlank(article: viewModel.article)
+                        }
+                    }
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
@@ -150,13 +163,18 @@ struct AddNewProduct: View {
                     }
                     .frame(height: 50)
                 }
+                .disabled(
+                    !(viewModel.name.count > 2) || !(viewModel.article.count > 3) || !(viewModel.price.count > 2) || !(viewModel.quantity.count >= 1)
+                )
 
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(10)
             .background(.gray.opacity(0.3))
+            
     }
 }
 

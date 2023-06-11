@@ -12,7 +12,7 @@ struct OrderList: View {
     var body: some View {
         VStack{
             Button("12312") {
-                StorageManager.shared.uploadImage([UIImage(systemName: "person")!], "12312")
+                print("1212")
             }
             if images.count > 0 {
                 Image(uiImage: images[0])

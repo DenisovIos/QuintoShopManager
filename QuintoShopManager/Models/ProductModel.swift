@@ -14,7 +14,7 @@ struct ProductModel: Identifiable {
     var price: String
     var article: String
     var type: String
-    var quantity: Int
+    var quantity: String
 }
 
 extension ProductModel {
@@ -39,7 +39,7 @@ extension ProductModel {
               let price: String = data["price"] as? String,
               let article: String = data["article"] as? String,
               let type: String = data["type"] as? String,
-              let quantity: Int = data["quantity"] as? Int else { return nil }
+              let quantity: String = data["quantity"] as? String else { return nil }
         
         self.id = id
         self.name = name

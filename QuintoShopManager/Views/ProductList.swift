@@ -8,12 +8,28 @@
 import SwiftUI
 
 struct ProductList: View {
-    @StateObject var viewModel = ProductViewModel()
+    @StateObject var viewModel = ProductListViewModel()
     var body: some View {
         VStack {
             VStack{
                 Text("Список товаров")
                     .font(.title)
+                HStack{
+                    TextField("Поиск по артиклу", text: $viewModel.searchArticle)
+                    Button {
+                        print("поиск по артиклу")
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                    }
+
+                }
+                .frame(height: 30)
+                .padding(10)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 5)
+                        .strokeBorder(lineWidth: 1)
+                        .foregroundColor(.gray)
+                }.padding(10)
                 
                 HStack(spacing: 0){
                     Spacer()

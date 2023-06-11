@@ -34,7 +34,11 @@ class FirestoreService {
         }
     }
     
-    func addPhoto(_ photo: PhotoModel, to product: ProductModel) async throws  {
-        try await productRef.document(product.id).collection("photos").document(photo.id).setData(photo.representation)
+    func addNewProduct(_ product: ProductModel) async throws {
+            do {
+                try await productRef.document(product.id).setData(product.representation)
+            } catch {
+                throw error
+            }
     }
 }
