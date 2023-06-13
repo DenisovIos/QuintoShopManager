@@ -14,10 +14,12 @@ class StorageManager: ObservableObject {
     static let shared = StorageManager(); private init () { }
     let storage = Storage.storage()
     
-    func uploadImages (_ images: [UIImage], article: String)  {
-        for image in images.enumerated() {
-            let storageRef = storage.reference().child("\(article)/\(image.offset).jpg")
-            let imageData = image.element.jpegData(compressionQuality: 0.5)
+    func uploadImages (_ images: [UIImage],_ article: String) -> [ProductPhotoModel]  {
+        var productImages = [ProductPhotoModel]()
+        for image in images{
+            let imageModel = PhotoModel(image: image)
+            let storageRef = storage.reference().child("\(article)/\(imageModel.id).jpg")
+            let imageData = image.jpegData(compressionQuality: 0.5)
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpg"
             if let data = imageData {
@@ -27,55 +29,42 @@ class StorageManager: ObservableObject {
                     }
                     
                     if let metadata = metadata {
-                        print("Metadata: ", metadata)
+                        print(metadata)
+                        productImages.append(ProductPhotoModel(id: imageModel.id, bucket: article))
                     }
                 }
             }
         }
-        
-    }
-    func uploadImageBlank (article: String)  {
-        let storageRef = storage.reference().child("\(article)/0.jpg")
-        let image = UIImage(named: "blankPhoto")
-        let imageData = image?.jpegData(compressionQuality: 0.5)
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpg"
-        if let data = imageData {
-            storageRef.putData(data, metadata: metadata) { (metadata, error) in
-                if let error = error {
-                    print("Error while uploading file: ", error)
-                }
-                
-                if let metadata = metadata {
-                    print("Metadata: ", metadata)
-                }
-            }
-        }
-        
+        return productImages
         
     }
     
-    func downloadImages (_ article: String) async throws -> [UIImage] {
+    
+    
+    func downloadImages (_ product: ProductModel) async throws -> [UIImage] {
         var result = [UIImage]()
-        
-        for i in 0...10 {
-            let islandRef = storage.reference().child("\(article)/\(i).jpg")
-            islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                if let error = error {
-                    print("image \(i) is empty")
-                } else {
-                    print("получаем дату")
-                    guard let data else { return }
-                    print("делаем дату красивой")
-                    guard let image = UIImage(data: data) else { return }
-                    print("делаем дату картинкой")
-                    result.append(image)
-                    print("Добавили в массив")
-                }
+        let productPhotos = try await FirestoreService.shared.getProductPhotos(product)
+        for photo in productPhotos {
+            let storageRef =  storage.reference().child("\(photo.bucket)/\(photo.id).jpg")
+            do {
+                let data = try await storageRef.data(maxSize: 1 * 1024 * 1024)
+                guard let image = UIImage(data: data) else { throw StorageErrors.badData}
+                result.append(image)
+            } catch {
+                throw StorageErrors.badFetchData
             }
+            
         }
-        
         return result
     }
     
+    
+}
+
+
+
+
+enum StorageErrors: Error {
+    case badData
+    case badFetchData
 }

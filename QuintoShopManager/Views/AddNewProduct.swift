@@ -137,19 +137,8 @@ struct AddNewProduct: View {
                 
                 Button {
                     Task {
-                        try await FirestoreService.shared.addNewProduct(ProductModel(name: viewModel.name,
-                                                                           description: viewModel.description,
-                                                                           price: viewModel.price,
-                                                                           article: viewModel.article,
-                                                                           type: viewModel.type.title,
-                                                                           quantity: viewModel.quantity))
-                    }
-                    Task {
-                        if viewModel.selectedImages.count > 0 {
-                            StorageManager.shared.uploadImages(_: viewModel.selectedImages ,article: viewModel.article)
-                        } else {
-                            StorageManager.shared.uploadImageBlank(article: viewModel.article)
-                        }
+                        let photos = StorageManager.shared.uploadImages(viewModel.selectedImages, viewModel.article)
+                        try await FirestoreService.shared.addNewProduct(ProductModel(name: viewModel.name, description: viewModel.description, price: viewModel.price, article: viewModel.article, type: viewModel.type.title, quantity: viewModel.quantity), photos)
                     }
                 } label: {
                     ZStack{
