@@ -10,6 +10,8 @@
 		441301CF2A52CA0E00AF305E /* ProductAddedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301CE2A52CA0E00AF305E /* ProductAddedElement.swift */; };
 		441301D22A52D21700AF305E /* ProductCellElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301D12A52D21700AF305E /* ProductCellElement.swift */; };
 		441301D42A52D65400AF305E /* ProductCellElemtViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301D32A52D65400AF305E /* ProductCellElemtViewModel.swift */; };
+		441301D62A52E84500AF305E /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301D52A52E84500AF305E /* ProductView.swift */; };
+		441301D82A52E8D500AF305E /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301D72A52E8D500AF305E /* ProductViewModel.swift */; };
 		442B00632A333E7E001D9F08 /* QuintoShopManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B00622A333E7E001D9F08 /* QuintoShopManagerApp.swift */; };
 		442B00652A333E7E001D9F08 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B00642A333E7E001D9F08 /* ProductList.swift */; };
 		442B00672A333E7E001D9F08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442B00662A333E7E001D9F08 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		441301CE2A52CA0E00AF305E /* ProductAddedElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddedElement.swift; sourceTree = "<group>"; };
 		441301D12A52D21700AF305E /* ProductCellElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellElement.swift; sourceTree = "<group>"; };
 		441301D32A52D65400AF305E /* ProductCellElemtViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellElemtViewModel.swift; sourceTree = "<group>"; };
+		441301D52A52E84500AF305E /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		441301D72A52E8D500AF305E /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		442B005F2A333E7E001D9F08 /* QuintoShopManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuintoShopManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		442B00622A333E7E001D9F08 /* QuintoShopManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuintoShopManagerApp.swift; sourceTree = "<group>"; };
 		442B00642A333E7E001D9F08 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				444760D22A336EC100908903 /* ScreenChanger.swift */,
+				441301D52A52E84500AF305E /* ProductView.swift */,
 				442B00642A333E7E001D9F08 /* ProductList.swift */,
 				442B007C2A33423F001D9F08 /* TabBarView.swift */,
 				442B007E2A334387001D9F08 /* OrderList.swift */,
@@ -175,6 +180,7 @@
 				442B008E2A3346E2001D9F08 /* ProductListViewModel.swift */,
 				444760D02A3362FB00908903 /* AuthViewModel.swift */,
 				444760DA2A3471B100908903 /* AddNewProductViewModel.swift */,
+				441301D72A52E8D500AF305E /* ProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 				445F554B2A34A06C004C5831 /* PhotoModel.swift in Sources */,
 				441301D22A52D21700AF305E /* ProductCellElement.swift in Sources */,
 				444760DB2A3471B100908903 /* AddNewProductViewModel.swift in Sources */,
+				441301D82A52E8D500AF305E /* ProductViewModel.swift in Sources */,
 				442B007F2A334387001D9F08 /* OrderList.swift in Sources */,
 				441301CF2A52CA0E00AF305E /* ProductAddedElement.swift in Sources */,
 				444760CF2A335FCE00908903 /* AuthService.swift in Sources */,
@@ -282,6 +289,7 @@
 				441301D42A52D65400AF305E /* ProductCellElemtViewModel.swift in Sources */,
 				442B008F2A3346E2001D9F08 /* ProductListViewModel.swift in Sources */,
 				442B00632A333E7E001D9F08 /* QuintoShopManagerApp.swift in Sources */,
+				441301D62A52E84500AF305E /* ProductView.swift in Sources */,
 				444760D12A3362FC00908903 /* AuthViewModel.swift in Sources */,
 				445F55482A347D83004C5831 /* TextFieldMod.swift in Sources */,
 				442B008B2A334560001D9F08 /* ShopingCartModel.swift in Sources */,

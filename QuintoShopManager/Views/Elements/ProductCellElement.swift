@@ -22,7 +22,6 @@ struct ProductCellElement: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(maxWidth: .infinity,
                                        maxHeight: .infinity)
-                                .clipped()
                         }
                     }.padding(5)
                         .tabViewStyle(.page)
@@ -30,9 +29,6 @@ struct ProductCellElement: View {
                     Image(systemName: "photo.artframe")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity,
-                               maxHeight: .infinity)
-                        .clipped()
                 }
             }.frame(width: 100, height: 100)
             HStack {
