@@ -137,8 +137,12 @@ struct AddNewProduct: View {
                 
                 Button {
                     Task {
-                        let photos = StorageManager.shared.uploadImages(viewModel.selectedImages, viewModel.article)
-                        try await FirestoreService.shared.addNewProduct(ProductModel(name: viewModel.name, description: viewModel.description, price: viewModel.price, article: viewModel.article, type: viewModel.type.title, quantity: viewModel.quantity), photos)
+                        let photos = try await StorageManager.shared.uploadImages(viewModel.selectedImages, viewModel.article)
+                        try await FirestoreService.shared.addNewProduct(ProductModel(name: viewModel.name, description: viewModel.description, price: viewModel.price, article: viewModel.article, type: viewModel.type.title, quantity: viewModel.quantity, photos: photos), photos)
+                        DispatchQueue.main.async {
+                            viewModel.showOk.toggle()
+                            viewModel.clearAll()
+                        }
                     }
                 } label: {
                     ZStack{
@@ -158,11 +162,15 @@ struct AddNewProduct: View {
 
                 
             }
+            .fullScreenCover(isPresented: $viewModel.showOk, content: {
+                ProductAddedElement(checkIn: $viewModel.showOk)
+            })
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(10)
             .background(.gray.opacity(0.3))
+            .blur(radius: viewModel.showOk ? 30 : 0)
             
     }
 }

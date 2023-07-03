@@ -17,6 +17,7 @@ class AddNewProductViewModel: ObservableObject {
     @Published var images: [String] = []
     @Published var type: TypeOfModel = TypeOfModel.dataSource[0]
     @Published var quantity: String = ""
+    @Published var showOk: Bool = false
     
     var productTypeList : [TypeOfModel]
     
@@ -30,6 +31,19 @@ class AddNewProductViewModel: ObservableObject {
         }
         selectedImages = result
     }
+    
+    func clearAll() {
+        name = ""
+        description = ""
+        price = ""
+        article = ""
+        images = []
+        type = TypeOfModel.dataSource[0]
+        quantity = ""
+        selectedImages = []
+        selectedItems = []
+    }
+    
     init () {
         productTypeList = TypeOfModel.dataSource
     }

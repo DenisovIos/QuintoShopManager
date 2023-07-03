@@ -27,12 +27,6 @@ class FirestoreService {
         
     }
     
-//    func supportMethod() async throws {
-//        for typeOf in TypeOfModel.dataSource {
-//            try await typeOfRef.document(typeOf.id).setData(typeOf.representation)
-//            print("Данные загружены")
-//        }
-//    }
     
     func addNewProduct(_ product: ProductModel,_ photos: [ProductPhotoModel]) async throws {
             do {
@@ -49,11 +43,21 @@ class FirestoreService {
     
     
     
-    func getProductPhotos (_ product: ProductModel)async throws -> [ProductPhotoModel] {
-        let snapshot = try await productRef.document(product.id).collection("photos").getDocuments()
+    func getProductPhotos (_ productID: String) async throws -> [ProductPhotoModel] {
+        let snapshot = try await productRef.document(productID).collection("photos").getDocuments()
         let docs = snapshot.documents
         var photos = [ProductPhotoModel]()
         for doc in docs { if let productPhoto = ProductPhotoModel(qdSnap: doc) { photos.append(productPhoto) } }
         return photos
+    }
+    
+    func getAllProducts () async throws -> [ProductModel] {
+        let snapshot = try await productRef.getDocuments()
+        let docs = snapshot.documents
+        var products = [ProductModel]()
+        for doc in docs {
+            if let product = try await ProductModel(qdSnap: doc) {products.append(product)}
+        }
+        return products
     }
 }

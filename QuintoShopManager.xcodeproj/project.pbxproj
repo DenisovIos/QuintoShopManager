@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441301CF2A52CA0E00AF305E /* ProductAddedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301CE2A52CA0E00AF305E /* ProductAddedElement.swift */; };
+		441301D22A52D21700AF305E /* ProductCellElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301D12A52D21700AF305E /* ProductCellElement.swift */; };
+		441301D42A52D65400AF305E /* ProductCellElemtViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441301D32A52D65400AF305E /* ProductCellElemtViewModel.swift */; };
 		442B00632A333E7E001D9F08 /* QuintoShopManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B00622A333E7E001D9F08 /* QuintoShopManagerApp.swift */; };
 		442B00652A333E7E001D9F08 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B00642A333E7E001D9F08 /* ProductList.swift */; };
 		442B00672A333E7E001D9F08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442B00662A333E7E001D9F08 /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441301CE2A52CA0E00AF305E /* ProductAddedElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddedElement.swift; sourceTree = "<group>"; };
+		441301D12A52D21700AF305E /* ProductCellElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellElement.swift; sourceTree = "<group>"; };
+		441301D32A52D65400AF305E /* ProductCellElemtViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellElemtViewModel.swift; sourceTree = "<group>"; };
 		442B005F2A333E7E001D9F08 /* QuintoShopManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuintoShopManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		442B00622A333E7E001D9F08 /* QuintoShopManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuintoShopManagerApp.swift; sourceTree = "<group>"; };
 		442B00642A333E7E001D9F08 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		441301D02A52CA1200AF305E /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				441301CE2A52CA0E00AF305E /* ProductAddedElement.swift */,
+				441301D12A52D21700AF305E /* ProductCellElement.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		442B00562A333E7E001D9F08 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +140,7 @@
 				442B00802A3343CF001D9F08 /* AddNewProduct.swift */,
 				444760CC2A335FAC00908903 /* AuthView.swift */,
 				445F55492A347D86004C5831 /* Modifier */,
+				441301D02A52CA1200AF305E /* Elements */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +171,7 @@
 		442B00902A3346EB001D9F08 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				441301D32A52D65400AF305E /* ProductCellElemtViewModel.swift */,
 				442B008E2A3346E2001D9F08 /* ProductListViewModel.swift */,
 				444760D02A3362FB00908903 /* AuthViewModel.swift */,
 				444760DA2A3471B100908903 /* AddNewProductViewModel.swift */,
@@ -255,11 +272,14 @@
 				442B008D2A3345E5001D9F08 /* OrderListModel.swift in Sources */,
 				442B007D2A33423F001D9F08 /* TabBarView.swift in Sources */,
 				445F554B2A34A06C004C5831 /* PhotoModel.swift in Sources */,
+				441301D22A52D21700AF305E /* ProductCellElement.swift in Sources */,
 				444760DB2A3471B100908903 /* AddNewProductViewModel.swift in Sources */,
 				442B007F2A334387001D9F08 /* OrderList.swift in Sources */,
+				441301CF2A52CA0E00AF305E /* ProductAddedElement.swift in Sources */,
 				444760CF2A335FCE00908903 /* AuthService.swift in Sources */,
 				442B00892A334523001D9F08 /* TypeOfModel.swift in Sources */,
 				444252C22A3919E30035BC36 /* ProductPhotoModel.swift in Sources */,
+				441301D42A52D65400AF305E /* ProductCellElemtViewModel.swift in Sources */,
 				442B008F2A3346E2001D9F08 /* ProductListViewModel.swift in Sources */,
 				442B00632A333E7E001D9F08 /* QuintoShopManagerApp.swift in Sources */,
 				444760D12A3362FC00908903 /* AuthViewModel.swift in Sources */,

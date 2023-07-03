@@ -21,7 +21,7 @@ struct OrderList: View {
             }
             Button("Get photo") {
                 Task {
-                    let images = try await StorageManager.shared.downloadImages("12312")
+                   
                 }
             }
         }

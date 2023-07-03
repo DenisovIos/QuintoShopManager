@@ -14,7 +14,7 @@ class StorageManager: ObservableObject {
     static let shared = StorageManager(); private init () { }
     let storage = Storage.storage()
     
-    func uploadImages (_ images: [UIImage],_ article: String) -> [ProductPhotoModel]  {
+    func uploadImages (_ images: [UIImage],_ article: String) async throws -> [ProductPhotoModel]  {
         var productImages = [ProductPhotoModel]()
         for image in images{
             let imageModel = PhotoModel(image: image)
@@ -23,27 +23,21 @@ class StorageManager: ObservableObject {
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpg"
             if let data = imageData {
-                storageRef.putData(data, metadata: metadata) { (metadata, error) in
-                    if let error = error {
-                        print("Error while uploading file: ", error)
-                    }
+                try await storageRef.putDataAsync(data, metadata: metadata)
+                productImages.append(ProductPhotoModel(id: imageModel.id, bucket: article))
                     
-                    if let metadata = metadata {
-                        print(metadata)
-                        productImages.append(ProductPhotoModel(id: imageModel.id, bucket: article))
-                    }
                 }
             }
-        }
         return productImages
+        }
         
-    }
+        
     
     
     
     func downloadImages (_ product: ProductModel) async throws -> [UIImage] {
         var result = [UIImage]()
-        let productPhotos = try await FirestoreService.shared.getProductPhotos(product)
+        let productPhotos = try await FirestoreService.shared.getProductPhotos(product.id)
         for photo in productPhotos {
             let storageRef =  storage.reference().child("\(photo.bucket)/\(photo.id).jpg")
             do {

@@ -57,11 +57,18 @@ struct ProductList: View {
                     .background(.gray)
                     .foregroundColor(.black)
                 }
+                .onAppear{
+                    Task {
+                        try await viewModel.getAllProducts()
+                    }
+                }
                 .padding()
                 .background(.white)
                 .frame(height: 40)
                 List {
-                    Text("Тут будут товары")
+                    ForEach(viewModel.showedProducts ) { product in
+                        ProductCellElement(product)
+                    }
                 }
                 .listStyle(.plain)
                 
