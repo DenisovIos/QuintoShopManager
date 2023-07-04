@@ -13,6 +13,7 @@ class ProductListViewModel: ObservableObject {
     @Published var searchArticle: String = ""
     var allProducts: [ProductModel]
     @Published var showedProducts : [ProductModel]
+    @Published var showProduct = false
     
     func getAllProducts () async throws{
         let products = try await FirestoreService.shared.getAllProducts()

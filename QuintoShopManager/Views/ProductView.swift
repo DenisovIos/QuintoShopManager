@@ -10,22 +10,38 @@ import PhotosUI
 
 struct ProductView: View {
     @StateObject var viewModel = ProductViewModel()
+    var product : ProductModel
     var body: some View {
         ScrollView{
             VStack(alignment: .leading){
-                HStack(){
-                    Spacer()
-                    Text(viewModel.product.name)
-                        .font(.title)
-                    Spacer()
-                    Button {
-                        viewModel.showEdit.toggle()
-                    } label: {
-                        Text(viewModel.showEdit ? "Отмена" : "Ред.")
+                ZStack(alignment: .center){
+                    HStack {
+                        Text(viewModel.product.name)
+                            .font(.title)
                     }
+                    HStack(){
+                        Button {
+                            viewModel.showEdit.toggle()
+                        } label: {
+                            Text(viewModel.showEdit ? "Отмена" : "Ред.")
+                        }
+                        Spacer()
+                        if viewModel.showEdit {
+                            Button {
+                                print("удалить")
+                            } label: {
+                                Text( "Удалить")
+                                    .tint(.red)
+                            }
+                        }
+                    } .frame(maxWidth: .infinity)
                 }.onAppear {
-                    viewModel.changeAll()
+                    viewModel.product = product
+                    Task{
+                        await viewModel.changeAll()
+                    }
                 }
+                .frame(maxWidth: .infinity)
                 HStack{
                     Text("Название: ")
                         .frame(width: 100, alignment: .leading)
@@ -93,6 +109,7 @@ struct ProductView: View {
                     }
                     .frame(height: 50)
                 }
+                .disabled(!viewModel.showEdit)
                 .onChange(of: viewModel.selectedItems) { newValues in
                     Task {
                         viewModel.selectedImages = []
@@ -107,6 +124,7 @@ struct ProductView: View {
                         }
                     }
                 }
+                //TODO: отработка по булу
                 HStack{
                     if viewModel.selectedImages.count > 0 {
                         ScrollView(.horizontal){
@@ -132,11 +150,13 @@ struct ProductView: View {
                                                     .foregroundColor(.red)
                                             }
                                         }
+                                        .disabled(!viewModel.showEdit)
+                                        .opacity(viewModel.showEdit ? 1 : 0)
                                         
                                     }
                                 }
                             }
-                        }
+                        }.disabled(!viewModel.showEdit)
                         
                     } else {
                         Image(systemName: "photo.artframe")
@@ -170,7 +190,7 @@ struct ProductView: View {
                     .frame(height: 50)
                 }
                 .disabled(
-                    !(viewModel.name.count > 2) || !(viewModel.article.count > 3) || !(viewModel.price.count > 2) || !(viewModel.quantity.count >= 1)
+                    !(viewModel.name.count > 2) || !(viewModel.article.count > 3) || !(viewModel.price.count > 2) || !(viewModel.quantity.count >= 1) || !viewModel.showEdit
                 )
                 
                 
@@ -188,11 +208,16 @@ struct ProductView: View {
     }
 }
 
-
+extension ProductView {
+    init (_ product : ProductModel) {
+        self.product = product
+    }
+    
+}
 
 
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductView()
+        ProductView(ProductModel(name: "Guitar", description: "test test teste testetstetstetstetstetstest", price: "231", article: "GB212412", type: "", quantity: "1", photos: []))
     }
 }

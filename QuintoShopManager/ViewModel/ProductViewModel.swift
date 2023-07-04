@@ -45,12 +45,15 @@ class ProductViewModel: ObservableObject {
         selectedImages = []
         selectedItems = []
     }
-    func changeAll() {
-        name = product.name
-        description = product.description
-        price = product.price
-        article = product.article
-        quantity = product.quantity
+    func changeAll() async {
+        DispatchQueue.main.async { [self] in
+            name = product.name
+            description = product.description
+            price = product.price
+            article = product.article
+            quantity = product.quantity
+        }
+        
         Task {
             let photos = try await StorageManager.shared.downloadImages(product)
             DispatchQueue.main.async {

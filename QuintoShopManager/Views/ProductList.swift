@@ -65,12 +65,26 @@ struct ProductList: View {
                 .padding()
                 .background(.white)
                 .frame(height: 40)
-                List {
-                    ForEach(viewModel.showedProducts ) { product in
+                NavigationView {
+                    List (viewModel.showedProducts) { product in
+                        
                         ProductCellElement(product)
+                            .sheet(isPresented: $viewModel.showProduct, content: {
+                                ProductView(product)
+                            })
+                            .onTapGesture {
+                                viewModel.showProduct.toggle()
+                            }
+                        
+                        
+                        
+
+                            
+                        
                     }
+                    .listStyle(.plain)
+                    
                 }
-                .listStyle(.plain)
                 
             }
         }
